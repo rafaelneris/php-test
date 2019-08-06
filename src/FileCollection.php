@@ -39,9 +39,7 @@ class FileCollection extends CollectionAbstract implements CollectionInterface
      */
     public function write()
     {
-        if (!fwrite($this->fileResource, $this->toJson())) {
-            throw new DomainException("Could not write file.");
-        }
+        fwrite($this->fileResource, $this->toJson());
 
         return true;
     }

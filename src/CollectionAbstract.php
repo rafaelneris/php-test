@@ -45,14 +45,6 @@ abstract class CollectionAbstract implements CollectionInterface
         }
 
         return $this->data[$index];
-    }    /**
-     * @test
-     * @doesNotPerformAssertions
-     */
-    public function objectCanBeConstructed()
-    {
-        $collection = new MemoryCollection();
-        return $collection;
     }
 
     /**
