@@ -84,7 +84,6 @@ abstract class CollectionAbstract implements CollectionInterface
 
     /**
      * {@inheritDoc}
-     * @return false|string
      * @throws \Exception
      */
     public function toJson()
