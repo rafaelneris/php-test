@@ -287,6 +287,6 @@ class FileCollectionTest extends TestCase
     public function emptyIndexInVerificationIndexExpired()
     {
         $collection = clone $this->collection;
-        $this->assertFalse($collection->isIndexExpired(null));
+        $this->assertFalse($collection->isIndexExpired(''));
     }
 }
