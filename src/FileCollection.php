@@ -1,9 +1,6 @@
 <?php
 
-
 namespace Live\Collection;
-
-use DomainException;
 
 /**
  * Class FileCollection
@@ -49,12 +46,7 @@ class FileCollection extends CollectionAbstract implements CollectionInterface
      */
     public function deleteFile()
     {
-        if (!file_exists($this->filePath)) {
-            return false;
-        }
-
         @unlink($this->filePath);
-
         return true;
     }
 }

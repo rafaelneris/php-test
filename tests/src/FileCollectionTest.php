@@ -279,4 +279,14 @@ class FileCollectionTest extends TestCase
 
         $this->assertFileExists('testeFile');
     }
+
+    /**
+     * @test
+     * @throws \Exception
+     */
+    public function emptyIndexInVerificationIndexExpired()
+    {
+        $collection = clone $this->collection;
+        $this->assertFalse($collection->isIndexExpired(null));
+    }
 }
