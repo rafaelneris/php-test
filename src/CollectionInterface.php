@@ -9,6 +9,7 @@ namespace Live\Collection;
  */
 interface CollectionInterface
 {
+
     /**
      * Returns a value by index
      *
@@ -23,9 +24,10 @@ interface CollectionInterface
      *
      * @param string $index
      * @param mixed $value
+     * @param integer $defaultIndexExpires
      * @return void
      */
-    public function set(string $index, $value);
+    public function set(string $index, $value, $defaultIndexExpires);
 
     /**
      * Checks whether the collection has the given index
@@ -50,4 +52,17 @@ interface CollectionInterface
      * @return void
      */
     public function clean();
+
+    /**
+     * Data to Json
+     * @return false|string
+     * @throws \Exception
+     */
+    public function toJson();
+
+    /**
+     * @param string $index
+     * @return bool
+     */
+    public function isIndexExpired(string $index);
 }

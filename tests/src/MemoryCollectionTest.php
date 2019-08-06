@@ -31,21 +31,27 @@ class MemoryCollectionTest extends TestCase
         $collection->set('index5', ['data']);
     }
 
-     /**
+    /**
      * @test
      * @depends dataCanBeAdded
+     * @throws \Exception
      */
     public function dataCanBeRetrieved()
     {
         $collection = new MemoryCollection();
         $collection->set('index1', 'value');
 
-        $this->assertEquals('value', $collection->get('index1'));
+        $index = $collection->get('index1');
+
+        $this->assertArrayHasKey('value', $index);
+        $this->assertArrayHasKey('expires', $index);
+        $this->assertEquals('value', $index['value']);
     }
 
     /**
-     * @test
+     * @testhrows \Exception
      * @depends objectCanBeConstructed
+     * @throws \Exception
      */
     public function inexistentIndexShouldReturnDefaultValue()
     {
@@ -62,6 +68,7 @@ class MemoryCollectionTest extends TestCase
     public function newCollectionShouldNotContainItems()
     {
         $collection = new MemoryCollection();
+
         $this->assertEquals(0, $collection->count());
     }
 
